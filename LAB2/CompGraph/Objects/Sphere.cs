@@ -5,12 +5,16 @@ namespace CompGraph.Objects
 {
     public class Sphere : IObject
     {
-        public Point Center { get; private set; }
         public float Radius { get; private set; }
 
-        public Sphere(Point center, float radius)
+        public Transform transform { get; set; }
+
+        public Point Center { get; private set; }
+
+        public Sphere(float x, float y, float z, float radius)
         {
-            Center = center;
+            transform = new Transform(new SimpleVector(x, y, z));
+            Center = new Point(transform);
             Radius = radius;
         }
 
@@ -46,41 +50,23 @@ namespace CompGraph.Objects
             if (t < 0)
                 return null;
 
-            var x = (float)(start.x + t * direction.x);
-            var y = (float)(start.y + t * direction.y);
-            var z = (float)(start.z + t * direction.z);
+            var x = (float)(start.transform.position.x + t * direction.x);
+            var y = (float)(start.transform.position.y + t * direction.y);
+            var z = (float)(start.transform.position.z + t * direction.z);
             return new Point(x, y, z);
         }
-
+        
         public Vector GetNormalOnPoint(Point point)
         {
             return Vector.GetVector(Center, point);
         }
 
-        public object RotateX(float degree)
-        {
-            return this;
-        }
 
-        public object RotateY(float degree)
+        public object ChangeTransform(Transform transform)
         {
-            return this;
-        }
-
-        public object RotateZ(float degree)
-        {
-            return this;
-        }
-
-        public object Scale(float kx, float ky, float kz)
-        {
-            Radius = kx;
-            return this;
-        }
-
-        public object Translate(Vector direction)
-        {
-            Center = (Point)Center.Translate(direction);
+            Center = (Point)Center.Translate(new Vector(transform.position));
+            Radius *= transform.position.x;
+            transform = Center.transform;
             return this;
         }
     }

@@ -50,7 +50,7 @@ namespace CompGraph
             for (int x = 0; x < Camera.height; x++)
             {
                 int yIterator = 0;
-                var pixelCenter = new Point(scanlineStartPoint.x, scanlineStartPoint.y, scanlineStartPoint.z);
+                var pixelCenter = new Point(scanlineStartPoint.transform.position.x, scanlineStartPoint.transform.position.y, scanlineStartPoint.transform.position.z);
 
                 for (int y = 0; y < Camera.width; y++)
                 {
@@ -75,9 +75,9 @@ namespace CompGraph
 
                     yIterator++;
 
-                    pixelCenter = new Point(pixelCenter.x + pixelWidthU.x, pixelCenter.y + pixelWidthU.y, +pixelCenter.z + pixelWidthU.z);
+                    pixelCenter = new Point(pixelCenter.transform.position.x + pixelWidthU.x, pixelCenter.transform.position.y + pixelWidthU.y, +pixelCenter.transform.position.z + pixelWidthU.z);
                 }
-                scanlineStartPoint = new Point(scanlineStartPoint.x - pixelHeightV.x, scanlineStartPoint.y - pixelHeightV.y, +scanlineStartPoint.z - pixelHeightV.z);
+                scanlineStartPoint = new Point(scanlineStartPoint.transform.position.x - pixelHeightV.x, scanlineStartPoint.transform.position.y - pixelHeightV.y, +scanlineStartPoint.transform.position.z - pixelHeightV.z);
             }
             return screen;
         }

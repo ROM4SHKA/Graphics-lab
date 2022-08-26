@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\visual studio проекты\\CompGraphTests\\CompGraphTests.csproj": {}
+    "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraphTests\\CompGraphTests.csproj": {}
   },
   "projects": {
-    "D:\\visual studio проекты\\CompGraphTests\\CompGraphTests.csproj": {
+    "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraphTests\\CompGraphTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\visual studio проекты\\CompGraphTests\\CompGraphTests.csproj",
+        "projectUniqueName": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraphTests\\CompGraphTests.csproj",
         "projectName": "CompGraphTests",
-        "projectPath": "D:\\visual studio проекты\\CompGraphTests\\CompGraphTests.csproj",
-        "packagesPath": "C:\\Users\\Denys\\.nuget\\packages\\",
-        "outputPath": "D:\\visual studio проекты\\CompGraphTests\\obj\\",
+        "projectPath": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraphTests\\CompGraphTests.csproj",
+        "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
+        "outputPath": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraphTests\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Programs\\Visual Studio Shared Components\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Denys\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\visual studio проекты\\CompGraph\\CompGraph.csproj": {
-                "projectPath": "D:\\visual studio проекты\\CompGraph\\CompGraph.csproj"
+              "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\CompGraph.csproj": {
+                "projectPath": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\CompGraph.csproj"
               }
             }
           }
@@ -84,25 +80,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\visual studio проекты\\CompGraph\\CompGraph.csproj": {
+    "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\CompGraph.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\visual studio проекты\\CompGraph\\CompGraph.csproj",
+        "projectUniqueName": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\CompGraph.csproj",
         "projectName": "CompGraph",
-        "projectPath": "D:\\visual studio проекты\\CompGraph\\CompGraph.csproj",
-        "packagesPath": "C:\\Users\\Denys\\.nuget\\packages\\",
-        "outputPath": "D:\\visual studio проекты\\CompGraph\\obj\\",
+        "projectPath": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\CompGraph.csproj",
+        "packagesPath": "C:\\Users\\roman\\.nuget\\packages\\",
+        "outputPath": "C:\\work\\graph_labs\\Graphics-lab\\LAB1\\CompGraph\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "D:\\Programs\\Visual Studio Shared Components\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Denys\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\roman\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -142,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
