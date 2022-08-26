@@ -47,9 +47,9 @@ namespace CompGraph.File
                         }
 
                         objects.Add(new Triangle(
-                            new Point(points[pointCoord[0] - 1].x, points[pointCoord[0] - 1].y, points[pointCoord[0] - 1].z),
-                            new Point(points[pointCoord[1] - 1].x, points[pointCoord[1] - 1].y, points[pointCoord[1] - 1].z),
-                            new Point(points[pointCoord[2] - 1].x, points[pointCoord[2] - 1].y, points[pointCoord[2] - 1].z),
+                            new Point(points[pointCoord[0] - 1].transform.position.x, points[pointCoord[0] - 1].transform.position.y, points[pointCoord[0] - 1].transform.position.z),
+                            new Point(points[pointCoord[1] - 1].transform.position.x, points[pointCoord[1] - 1].transform.position.y, points[pointCoord[1] - 1].transform.position.z),
+                            new Point(points[pointCoord[2] - 1].transform.position.x, points[pointCoord[2] - 1].transform.position.y, points[pointCoord[2] - 1].transform.position.z),
                             new Vector(normals[vectorCoord[0] - 1].x, normals[vectorCoord[0] - 1].y, normals[vectorCoord[0] - 1].z),
                             new Vector(normals[vectorCoord[1] - 1].x, normals[vectorCoord[1] - 1].y, normals[vectorCoord[1] - 1].z),
                             new Vector(normals[vectorCoord[2] - 1].x, normals[vectorCoord[2] - 1].y, normals[vectorCoord[2] - 1].z)));

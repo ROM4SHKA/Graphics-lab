@@ -46,46 +46,17 @@ namespace CompGraph.Objects
             if (t < 0)
                 return null;
 
-            var x = start.x + t * direction.x;
-            var y = start.y + t * direction.y;
-            var z = start.z + t * direction.z;
+            var x = start.transform.position.x + t * direction.x;
+            var y = start.transform.position.y + t * direction.y;
+            var z = start.transform.position.z + t * direction.z;
 
             return new Point(x, y, z);
         }
 
-        public object RotateX(float degree)
+        public object ChangeTransform(Transform transform)
         {
-            degree = (float)(degree * Math.PI / 180.0);
-            Position.RotateX(degree);
-            Direction.RotateX(degree);
-            return this;
-        }
-
-        public object RotateY(float degree)
-        {
-            degree = (float)(degree * Math.PI / 180.0);
-            Position.RotateY(degree);
-            Direction.RotateY(degree);
-            return this;
-        }
-
-        public object RotateZ(float degree)
-        {
-            degree = (float)(degree * Math.PI / 180.0);
-            Position.RotateZ(degree);
-            Direction.RotateZ(degree);
-            return this;
-        }
-
-        public object Scale(float kx, float ky, float kz)
-        {
-            return this;
-        }
-
-        public object Translate(Vector direction)
-        {
-            Position.Translate(direction);
-            Direction.Translate(direction);
+            Position.ChangeTransform(transform);
+            Direction.ChangeTransform(transform);
             return this;
         }
     }

@@ -3,22 +3,25 @@ using CompGraph.Objects;
 
 namespace CompGraph.Objects
 {
-    public class Vector
+    public class Vector : SimpleVector
     {
-        public float x { get; private set; }
-        public float y { get; private set; }
-        public float z { get; private set; }
+        public Transform transform { get; set; }
 
-        public Vector(float x, float y, float z)
+        public Vector(SimpleVector vector) :base (vector)
         {
-            this.x = x;
-            this.y = y;
-            this.z = z;
+            transform = new Transform(vector);
+        }
+
+        public Vector(float x, float y, float z) : base(x, y, z)
+        {
+            transform = new Transform(new SimpleVector(x, y, z));
         }
 
         public static Vector GetVector(Point p1, Point p2)
         {
-            return new Vector(p2.x - p1.x, p2.y - p1.y, p2.z - p1.z);
+            return new Vector(p2.transform.position.x - p1.transform.position.x, 
+                p2.transform.position.y - p1.transform.position.y, 
+                p2.transform.position.z - p1.transform.position.z);
         }
 
         public float Magnitude()
@@ -74,51 +77,80 @@ namespace CompGraph.Objects
             return (float)(v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
         }
 
-        public object RotateX(float degree)
+
+
+        public object ChangeTransform(Transform transform)
         {
-            degree = (float)(degree * Math.PI / 180.0);
-            float newY = (float)(y * Math.Cos(degree) - z * Math.Sin(degree));
-            float newZ = (float)(y * Math.Sin(degree) + z * Math.Cos(degree));
-            y = newY;
-            z = newZ;
-            return this;
-
-        }
-
-        public object RotateZ(float degree)
-        {
-            degree = (float)(degree * Math.PI / 180.0);
-            float newX = (float)(x * Math.Cos(degree) + z * Math.Sin(degree));
-            float newZ = (float)(z * Math.Cos(degree) - x * Math.Sin(degree));
-            x = newX;
-            z = newZ;
-            return this;
-        }
-
-        public object RotateY(float degree)
-        {
-            degree = (float)(degree * Math.PI / 180.0);
-
-            float newX = (float)(x * Math.Cos(degree) - y * Math.Sin(degree));
-            float newY = (float)(y * Math.Cos(degree) + x * Math.Sin(degree));
-            x = newX;
-            y = newY;
-            return this;
-        }
-
-        public object Scale(float kx, float ky, float kz)
-        {
-            x *= kx;
-            y *= ky;
-            z *= kz;
+            Translate(new Vector(transform.position));
+            Rotate(new Vector(transform.rotation));
+            Scale(new Vector(transform.scale));
             return this;
         }
 
         public object Translate(Vector direction)
         {
-            x += direction.x;
-            y += direction.y;
-            z += direction.z;
+            transform.position.x += direction.x;
+            transform.position.y += direction.y;
+            transform.position.z += direction.z;
+            SynchronizeCoord();
+            return this;
+        }
+        public object Rotate(Vector rotation)
+        {
+            transform.rotation = rotation;
+            RotateX(rotation.x);
+            RotateY(rotation.y);
+            RotateZ(rotation.z);
+            SynchronizeCoord();
+            return this;
+        }
+        public object Scale(Vector scale)
+        {
+            transform.scale = scale;
+            transform.position.x *= scale.x;
+            transform.position.y *= scale.y;
+            transform.position.z *= scale.z;
+            SynchronizeCoord();
+            return this;
+        }
+
+
+        private object RotateX(float degree)
+        {
+            degree = (float)(degree * Math.PI / 180.0);
+            float newY = (float)(transform.position.y * Math.Cos(degree) - transform.position.z * Math.Sin(degree));
+            float newZ = (float)(transform.position.y * Math.Sin(degree) + transform.position.z * Math.Cos(degree));
+            transform.position.y = newY;
+            transform.position.z = newZ;
+            return this;
+        }
+
+        private object RotateY(float degree)
+        {
+            degree = (float)(degree * Math.PI / 180.0);
+            float newX = (float)(transform.position.x * Math.Cos(degree) + transform.position.z * Math.Sin(degree));
+            float newZ = (float)(transform.position.z * Math.Cos(degree) - transform.position.x * Math.Sin(degree));
+            transform.position.x = newX;
+            transform.position.z = newZ;
+            return this;
+        }
+
+        private object RotateZ(float degree)
+        {
+            degree = (float)(degree * Math.PI / 180.0);
+
+            float newX = (float)(transform.position.x * Math.Cos(degree) - transform.position.y * Math.Sin(degree));
+            float newY = (float)(transform.position.y * Math.Cos(degree) + transform.position.x * Math.Sin(degree));
+            transform.position.x = newX;
+            transform.position.y = newY;
+            return this;
+        }
+
+        private object SynchronizeCoord()
+        {
+            x = transform.position.x;
+            y = transform.position.y;
+            z = transform.position.z;
             return this;
         }
     }
